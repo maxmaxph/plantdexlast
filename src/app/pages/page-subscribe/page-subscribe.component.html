@@ -1,0 +1,46 @@
+<div class="formulaire">
+    <form [formGroup]="submitForm" (ngSubmit)="submit()">
+    <div class="mb-3">
+        <label for="nom" class="form-label">Nom</label>
+        <input type="text" class="form-control" id="nom" placeholder="Votre nom" formControlName="nom">
+    </div>
+    <div class="mb-3">
+        <label for="prenom" class="form-label">Prénom</label>
+        <input type="text" class="form-control" id="prenom" placeholder="Votre prénom" formControlName="prenom">
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" placeholder="name@example.com" formControlName="email">
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Votre mot de passe" formControlName="password">
+        <div class="form-text">
+            Votre mot de passe doit comporter entre 8 et 20 caractères, et contenir des lettres et des chiffres.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="repeatPassword" class="form-label">Répéter Password</label>
+        <input type="password" class="form-control" id="repeatPassword" placeholder="Répétez votre mot de passe" formControlName="password">
+    </div>
+    <div class="group-btn">
+        <button class="btn btn-primary" type="submit">Inscription</button>
+    </div>
+    </form>
+</div>
+<div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="subscribeModalLabel">Inscription réussie</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Vous êtes maintenant inscrit à ce site de merde !
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<div *ngIf="planteAEnvoyer" class="card mb-2" style="width: 18rem;height: 520px;" (click)="vueDetails(planteAEnvoyer)"  >
+    <div class="container-img">
+        <img class="card-img-top card-img" src='{{ planteAEnvoyer.image }}' alt="Card image cap">
+        <i  *ngIf="planteAEnvoyer.favoris === false" class="bi bi-heart icon-favoris" (click)="ajouterAuxFavoris(planteAEnvoyer)"></i>
+        <i *ngIf="planteAEnvoyer.favoris === true" class="bi bi-heart-fill icon-favoris" (click)="ajouterAuxFavoris(planteAEnvoyer)"></i>
+    </div>
+    <div class="card-body" >
+        <h5 class="card-title">{{ planteAEnvoyer.nom }}</h5>
+        <p class="card-text">{{ planteAEnvoyer.categorie }}</p>
+        
+        <div class="container-goutte-eau">
+ 
+            <img *ngIf="planteAEnvoyer.arrosage >= 1" src="../../../assets/goutte-deau.png" style="height: 20px;">
+            <img *ngIf="planteAEnvoyer.arrosage < 1" src="../../../assets/goutte-de-sang.png" style="height: 25px;">
+            
+            <img *ngIf="planteAEnvoyer.arrosage >= 2" src="../../../assets/goutte-deau.png" style="height: 20px;">
+            <img *ngIf="planteAEnvoyer.arrosage < 2" src="../../../assets/goutte-de-sang.png" style="height: 25px;">
+ 
+            <img *ngIf="planteAEnvoyer.arrosage >= 3" src="../../../assets/goutte-deau.png" style="height: 20px;">
+            <img *ngIf="planteAEnvoyer.arrosage < 3" src="../../../assets/goutte-de-sang.png" style="height: 25px;">
+ 
+        </div>
+        <div class="container-soleil">
+            <img *ngIf="planteAEnvoyer.soleil == 'beaucoup' || planteAEnvoyer.soleil == 'moyen' || planteAEnvoyer.soleil == 'peu'" src="../../../assets/soleil_jaune.png" style="height: 25px;">
+            <img *ngIf="planteAEnvoyer.soleil != 'beaucoup' && planteAEnvoyer.soleil != 'moyen' && planteAEnvoyer.soleil != 'peu'" src="../../../assets/soleil_jaune.png" style="height: 25px;">
+            <img *ngIf="planteAEnvoyer.soleil == 'beaucoup' || planteAEnvoyer.soleil == 'moyen'" src="../../../assets/soleil_jaune.png" style="height: 25px;">
+            <img *ngIf="planteAEnvoyer.soleil != 'beaucoup' && planteAEnvoyer.soleil != 'moyen'" src="../../../assets/soleil.png" style="height: 25px;">
+            <img *ngIf="planteAEnvoyer.soleil == 'beaucoup'" src="../../../assets/soleil_jaune.png" style="height: 25px;">
+            <img *ngIf="planteAEnvoyer.soleil != 'beaucoup'" src="../../../assets/soleil.png" style="height: 25px;">
+ 
+        </div>
+    </div>
+</div>
+ 
+<div class="modal" #myModal>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4> {{ plantName }} a été ajouté à vos favoris </h4>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" (click)="closeModal()">Retour</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" #detailsModal>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h2> {{ detailsName }}</h2>
+                <img [src]="detailsImage" alt="image de la plante" style="width: 50%;">
+                <h3> {{ detailsCategorie }}</h3>
+                <p>Besoin en eau : {{ detailsArrosage }}/3</p>
+                <p>Besoin en soleil : {{ detailsSoleil }}</p>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" (click)="closeDetailsModal()">Retour</button>
+            </div>
+        </div>
+    </div>
+</div>

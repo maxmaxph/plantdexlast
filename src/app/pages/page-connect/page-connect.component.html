@@ -1,0 +1,41 @@
+<div class="formulaire">
+     <form [formGroup]="loginForm" (ngSubmit)="submit()">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" formControlName="email">
+    </div>
+    <div class="mb-3">
+        <label for="inputPassword5" class="form-label">Password</label>
+        <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" formControlName="password">
+        <div id="passwordHelpBlock" class="form-text">
+            Votre mot de passe doit comporter entre 8 et 20 caractères, inclure des lettres et des chiffres, et ne doit pas contenir d'espaces, de caractères spéciaux ni d'émoticônes.
+        </div>
+    </div>
+    <div class="group-btn">
+        <div class="col-4">
+            <button class="btn btn-primary" type="submit">Connexion</button>
+        </div>
+        <div class="col-4">
+            <button  [routerLink]="['subscribe']" class="btn btn-primary">Inscription</button>
+        </div>
+ 
+    </div>
+    </form>
+</div>
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Connexion réussie</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Vous êtes maintenant connecté !
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+

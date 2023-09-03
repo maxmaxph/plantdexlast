@@ -1,0 +1,17 @@
+input {
+    margin-right: 10px;
+}
+
+li {
+    padding: 10px;
+}
+
+h3 {
+    font-size: 1.2rem;
+    margin: 10px;
+    padding: 5px;
+}
+
+.inputDisplay {
+    display: none;
+}
